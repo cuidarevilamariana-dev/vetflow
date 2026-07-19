@@ -54,7 +54,10 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section id="faq" className="relative overflow-hidden px-6 py-28 sm:px-12">
+    <section
+      id="faq"
+      className="relative overflow-hidden bg-surface px-6 py-28 sm:px-12"
+    >
       <SectionDecor
         blobs={[
           "left-1/2 top-0 h-[26rem] w-[26rem] -translate-x-1/2 bg-accent/10",
@@ -97,7 +100,7 @@ export default function FAQ() {
               <motion.div
                 key={question}
                 variants={fadeUpItem}
-                className="overflow-hidden rounded-2xl border border-white/50 bg-white/40 backdrop-blur-xl"
+                className="overflow-hidden rounded-2xl border border-white/60 bg-white/70 backdrop-blur-xl"
               >
                 <button
                   type="button"

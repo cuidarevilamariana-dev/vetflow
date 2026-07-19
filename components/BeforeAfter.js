@@ -10,7 +10,7 @@ export default function BeforeAfter() {
   return (
     <section
       id="antes-depois"
-      className="relative overflow-hidden px-6 py-28 sm:px-12"
+      className="relative overflow-hidden bg-surface px-6 py-28 sm:px-12"
     >
       <SectionDecor
         blobs={["left-0 bottom-0 h-[24rem] w-[24rem] bg-accent/10"]}

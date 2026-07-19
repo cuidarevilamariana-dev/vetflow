@@ -3,17 +3,22 @@
 :root {
   --background: #fafaf9;
   --foreground: #111827;
+  --surface: #edf5f2;
+  --surface-warm: #faf3e7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-warm: var(--surface-warm);
   --color-brand: #0e7c66;
   --color-brand-dark: #0b5c4d;
   --color-accent: #d4a24c;
   --color-whatsapp: #25d366;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-fraunces);
 }
 
 body {

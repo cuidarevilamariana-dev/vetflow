@@ -35,7 +35,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
         <a
           href="#hero"
-          className="text-lg font-semibold tracking-tight text-foreground"
+          className="font-heading text-xl font-medium tracking-tight text-foreground"
         >
           Vet<span className="text-brand">Flow</span>
         </a>

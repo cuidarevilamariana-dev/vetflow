@@ -61,7 +61,7 @@ export default function Services() {
   return (
     <section
       id="servicos"
-      className="relative overflow-hidden px-6 py-28 sm:px-12"
+      className="relative overflow-hidden bg-surface-warm px-6 py-28 sm:px-12"
     >
       <SectionDecor
         blobs={["right-0 top-1/3 h-[28rem] w-[28rem] bg-accent/10"]}
@@ -106,12 +106,12 @@ export default function Services() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col rounded-2xl border border-white/50 bg-white/40 p-8 shadow-xl shadow-black/[0.03] backdrop-blur-xl transition-colors duration-300 hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/10"
+              className="group relative flex flex-col rounded-2xl border border-white/60 bg-white/70 p-8 shadow-xl shadow-black/[0.04] backdrop-blur-xl transition-colors duration-300 hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/10"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-brand-dark text-white shadow-lg shadow-brand/30">
                 <Icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-6 text-lg font-semibold text-foreground">
+              <h3 className="mt-6 font-heading text-lg font-medium text-foreground">
                 {title}
               </h3>
               <p className="mt-2 flex-1 text-sm leading-6 text-foreground/65">

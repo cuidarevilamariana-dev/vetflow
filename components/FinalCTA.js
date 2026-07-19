@@ -49,7 +49,7 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.6 }}
-          className="relative mx-auto max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl"
+          className="relative mx-auto max-w-2xl font-heading text-4xl font-medium leading-tight tracking-tight text-white sm:text-5xl"
         >
           Sua clínica merece um site à altura do cuidado que você oferece
         </motion.h2>

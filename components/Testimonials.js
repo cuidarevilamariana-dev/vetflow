@@ -35,7 +35,7 @@ export default function Testimonials() {
   return (
     <section
       id="depoimentos"
-      className="relative overflow-hidden px-6 py-28 sm:px-12"
+      className="relative overflow-hidden bg-surface-warm px-6 py-28 sm:px-12"
     >
       <SectionDecor
         blobs={["left-0 top-0 h-[26rem] w-[26rem] bg-brand/10"]}
@@ -76,7 +76,7 @@ export default function Testimonials() {
               key={name}
               variants={fadeUpItem}
               strength={6}
-              className="relative flex flex-col rounded-2xl border border-white/50 bg-white/40 p-8 shadow-xl shadow-black/[0.03] backdrop-blur-xl"
+              className="relative flex flex-col rounded-2xl border border-white/60 bg-white/70 p-8 shadow-xl shadow-black/[0.04] backdrop-blur-xl"
             >
               <span className="absolute right-6 top-6 rounded-full bg-foreground/5 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-foreground/40">
                 Exemplo

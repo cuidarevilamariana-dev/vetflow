@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr]">
           <div className="max-w-xs">
-            <span className="text-lg font-semibold tracking-tight text-foreground">
+            <span className="font-heading text-xl font-medium tracking-tight text-foreground">
               Vet<span className="text-brand">Flow</span>
             </span>
             <p className="mt-3 text-sm leading-6 text-foreground/60">

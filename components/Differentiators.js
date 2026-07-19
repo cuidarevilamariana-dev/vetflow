@@ -72,7 +72,7 @@ export default function Differentiators() {
             <motion.div
               key={label}
               variants={fadeUpItem}
-              className="flex items-center gap-3 rounded-2xl border border-white/50 bg-white/40 px-6 py-4 shadow-lg shadow-black/[0.03] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-brand/30"
+              className="flex items-center gap-3 rounded-2xl border border-brand/10 bg-brand/[0.05] px-6 py-4 shadow-lg shadow-black/[0.03] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-brand/30"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-brand-dark text-white">
                 <Icon className="h-5 w-5" />

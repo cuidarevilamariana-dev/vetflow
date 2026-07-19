@@ -109,7 +109,7 @@ export default function Process() {
               <span className="mt-4 text-xs font-semibold uppercase tracking-wider text-brand/60">
                 Etapa {index + 1}
               </span>
-              <h3 className="mt-1 text-lg font-semibold text-foreground">
+              <h3 className="mt-1 font-heading text-lg font-medium text-foreground">
                 {title}
               </h3>
               <p className="mt-2 text-sm leading-6 text-foreground/65">

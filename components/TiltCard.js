@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useMotionTemplate,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 
 export default function TiltCard({
   children,
@@ -13,6 +19,9 @@ export default function TiltCard({
 }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const spotlightX = useMotionValue(50);
+  const spotlightY = useMotionValue(50);
+  const spotlightOpacity = useMotionValue(0);
 
   const springConfig = { stiffness: 300, damping: 25 };
   const rotateX = useSpring(
@@ -24,15 +33,26 @@ export default function TiltCard({
     springConfig
   );
 
+  const spotlightBackground = useMotionTemplate`radial-gradient(320px circle at ${spotlightX}% ${spotlightY}%, rgba(255,255,255,0.35), transparent 75%)`;
+
   function handleMouseMove(event) {
     const rect = event.currentTarget.getBoundingClientRect();
-    x.set((event.clientX - rect.left) / rect.width - 0.5);
-    y.set((event.clientY - rect.top) / rect.height - 0.5);
+    const relX = (event.clientX - rect.left) / rect.width;
+    const relY = (event.clientY - rect.top) / rect.height;
+    x.set(relX - 0.5);
+    y.set(relY - 0.5);
+    spotlightX.set(relX * 100);
+    spotlightY.set(relY * 100);
+  }
+
+  function handleMouseEnter() {
+    spotlightOpacity.set(1);
   }
 
   function handleMouseLeave() {
     x.set(0);
     y.set(0);
+    spotlightOpacity.set(0);
   }
 
   const MotionTag = motion[href ? "a" : as];
@@ -42,12 +62,20 @@ export default function TiltCard({
       href={href}
       variants={variants}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
       style={{ rotateX, rotateY, transformPerspective: 800 }}
       className={className}
       {...rest}
     >
       {children}
+      <motion.span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 rounded-[inherit] mix-blend-overlay"
+        style={{ background: spotlightBackground, opacity: spotlightOpacity }}
+      />
     </MotionTag>
   );
 }

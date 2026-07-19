@@ -68,7 +68,7 @@ export default function Hero() {
         variants={wordContainer}
         initial="hidden"
         animate="show"
-        className="max-w-4xl text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
+        className="max-w-4xl font-heading text-5xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
       >
         {HEADING_LEAD.map((word, i) => (
           <motion.span
@@ -140,14 +140,20 @@ export default function Hero() {
             <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
           </div>
           <div className="relative aspect-video w-full overflow-hidden rounded-xl">
-            <Image
-              src="/images/hero-consulta.jpg"
-              alt="Veterinário atendendo um cão com a tutora em consultório moderno"
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 768px"
-              className="object-cover"
-            />
+            <motion.div
+              className="absolute inset-0"
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Image
+                src="/images/hero-consulta.jpg"
+                alt="Veterinário atendendo um cão com a tutora em consultório moderno"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover"
+              />
+            </motion.div>
             <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/30 via-transparent to-transparent" />
           </div>
         </motion.div>

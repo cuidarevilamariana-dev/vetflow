@@ -101,7 +101,7 @@ export default function Benefits() {
             <TiltCard
               key={title}
               variants={fadeUpItem}
-              className="group relative rounded-2xl border border-white/50 bg-white/40 p-8 shadow-xl shadow-brand/5 backdrop-blur-xl transition-shadow duration-300 hover:shadow-2xl"
+              className="group relative rounded-2xl border border-brand/10 bg-brand/[0.05] p-8 shadow-xl shadow-brand/5 backdrop-blur-xl transition-shadow duration-300 hover:shadow-2xl"
             >
               <div className="relative mb-6 inline-flex h-14 w-14 items-center justify-center">
                 <motion.span
@@ -115,7 +115,7 @@ export default function Benefits() {
                 />
                 <Icon className="relative h-6 w-6 text-brand transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground">
+              <h3 className="font-heading text-lg font-medium text-foreground">
                 {title}
               </h3>
               <p className="mt-2 text-sm leading-6 text-foreground/65">

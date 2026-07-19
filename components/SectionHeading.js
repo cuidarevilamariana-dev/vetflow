@@ -23,7 +23,7 @@ export default function SectionHeading({ eyebrow, title, description }) {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.6 }}
-        className="mt-6 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl"
+        className="mt-6 font-heading text-4xl font-medium tracking-tight text-foreground sm:text-5xl"
       >
         {words.map((word, i) => (
           <motion.span

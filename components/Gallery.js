@@ -3,10 +3,19 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Cat, HeartPulse } from "lucide-react";
-import { staggerContainer, fadeUpItem } from "@/lib/motion";
+import { staggerContainer } from "@/lib/motion";
 import TiltCard from "@/components/TiltCard";
 import SectionDecor from "@/components/SectionDecor";
 import SectionHeading from "@/components/SectionHeading";
+
+const revealItem = {
+  hidden: { opacity: 0, clipPath: "inset(100% 0% 0% 0%)" },
+  show: {
+    opacity: 1,
+    clipPath: "inset(0% 0% 0% 0%)",
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 const PHOTOS = [
   {
@@ -84,7 +93,7 @@ export default function Gallery() {
           {PHOTOS.map(({ src, alt, label }) => (
             <TiltCard
               key={src}
-              variants={fadeUpItem}
+              variants={revealItem}
               strength={10}
               className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/50 shadow-xl shadow-black/[0.05] backdrop-blur-xl"
             >
