@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
+import TiltCard from "@/components/TiltCard";
 
 const TESTIMONIALS = [
   {
@@ -66,9 +67,10 @@ export default function Testimonials() {
           className="mt-16 grid gap-6 lg:grid-cols-3"
         >
           {TESTIMONIALS.map(({ quote, name, role, initials }) => (
-            <motion.div
+            <TiltCard
               key={name}
               variants={fadeUpItem}
+              strength={6}
               className="relative flex flex-col rounded-2xl border border-white/50 bg-white/40 p-8 shadow-xl shadow-black/[0.03] backdrop-blur-xl"
             >
               <span className="absolute right-6 top-6 rounded-full bg-foreground/5 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-foreground/40">
@@ -100,7 +102,7 @@ export default function Testimonials() {
                   <p className="text-xs text-foreground/55">{role}</p>
                 </div>
               </div>
-            </motion.div>
+            </TiltCard>
           ))}
         </motion.div>
 

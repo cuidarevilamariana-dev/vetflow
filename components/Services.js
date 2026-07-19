@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { getWhatsappLink } from "@/lib/whatsapp";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
+import TiltCard from "@/components/TiltCard";
 
 const SERVICES = [
   {
@@ -90,7 +91,7 @@ export default function Services() {
           className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {SERVICES.map(({ icon: Icon, title, description }) => (
-            <motion.a
+            <TiltCard
               key={title}
               variants={fadeUpItem}
               href={getWhatsappLink(
@@ -98,7 +99,7 @@ export default function Services() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col rounded-2xl border border-white/50 bg-white/40 p-8 shadow-xl shadow-black/[0.03] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/10"
+              className="group relative flex flex-col rounded-2xl border border-white/50 bg-white/40 p-8 shadow-xl shadow-black/[0.03] backdrop-blur-xl transition-colors duration-300 hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/10"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-brand-dark text-white shadow-lg shadow-brand/30">
                 <Icon className="h-5 w-5" />
@@ -113,7 +114,7 @@ export default function Services() {
                 Saiba mais
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </span>
-            </motion.a>
+            </TiltCard>
           ))}
         </motion.div>
       </div>

@@ -10,6 +10,7 @@ import {
   LifeBuoy,
 } from "lucide-react";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
+import TiltCard from "@/components/TiltCard";
 
 const BENEFITS = [
   {
@@ -88,10 +89,10 @@ export default function Benefits() {
           className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {BENEFITS.map(({ icon: Icon, title, description }) => (
-            <motion.div
+            <TiltCard
               key={title}
               variants={fadeUpItem}
-              className="group relative rounded-2xl border border-white/50 bg-white/40 p-8 shadow-xl shadow-brand/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1"
+              className="group relative rounded-2xl border border-white/50 bg-white/40 p-8 shadow-xl shadow-brand/5 backdrop-blur-xl transition-shadow duration-300 hover:shadow-2xl"
             >
               <div className="relative mb-6 inline-flex h-14 w-14 items-center justify-center">
                 <motion.span
@@ -111,7 +112,7 @@ export default function Benefits() {
               <p className="mt-2 text-sm leading-6 text-foreground/65">
                 {description}
               </p>
-            </motion.div>
+            </TiltCard>
           ))}
         </motion.div>
       </div>

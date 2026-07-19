@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
+import TiltCard from "@/components/TiltCard";
 
 const PHOTOS = [
   {
@@ -75,9 +76,10 @@ export default function Gallery() {
           className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3"
         >
           {PHOTOS.map(({ src, alt, label }) => (
-            <motion.div
+            <TiltCard
               key={src}
               variants={fadeUpItem}
+              strength={10}
               className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/50 shadow-xl shadow-black/[0.05] backdrop-blur-xl"
             >
               <Image
@@ -91,7 +93,7 @@ export default function Gallery() {
               <span className="absolute bottom-4 left-4 text-sm font-semibold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 {label}
               </span>
-            </motion.div>
+            </TiltCard>
           ))}
         </motion.div>
 
