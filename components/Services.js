@@ -9,10 +9,14 @@ import {
   TrendingUp,
   ServerCog,
   ArrowUpRight,
+  Syringe,
+  Bone,
 } from "lucide-react";
 import { getWhatsappLink } from "@/lib/whatsapp";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
 import TiltCard from "@/components/TiltCard";
+import SectionDecor from "@/components/SectionDecor";
+import SectionHeading from "@/components/SectionHeading";
 
 const SERVICES = [
   {
@@ -59,29 +63,32 @@ export default function Services() {
       id="servicos"
       className="relative overflow-hidden px-6 py-28 sm:px-12"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute right-0 top-1/3 h-[28rem] w-[28rem] rounded-full bg-accent/10 blur-3xl" />
-      </div>
+      <SectionDecor
+        blobs={["right-0 top-1/3 h-[28rem] w-[28rem] bg-accent/10"]}
+        icons={[
+          {
+            Icon: Syringe,
+            className: "right-8 top-8 text-accent/[0.08]",
+            size: 72,
+            duration: 9,
+            rotate: -15,
+          },
+          {
+            Icon: Bone,
+            className: "-left-6 bottom-10 text-brand/[0.07]",
+            size: 88,
+            duration: 11,
+            delay: 0.5,
+          },
+        ]}
+      />
 
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-sm font-medium text-brand">
-            Serviços
-          </span>
-          <h2 className="mt-6 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Tudo que sua clínica precisa, em um só lugar
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-foreground/70">
-            Da criação à manutenção — cuidamos de cada detalhe pra você focar
-            no que importa: seus pacientes.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Serviços"
+          title="Tudo que sua clínica precisa, em um só lugar"
+          description="Da criação à manutenção — cuidamos de cada detalhe pra você focar no que importa: seus pacientes."
+        />
 
         <motion.div
           variants={staggerContainer}

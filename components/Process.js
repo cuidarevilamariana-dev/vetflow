@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Search, PenTool, Code2, Rocket } from "lucide-react";
+import { Search, PenTool, Code2, Rocket, Cross, Sparkles } from "lucide-react";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
+import SectionDecor from "@/components/SectionDecor";
+import SectionHeading from "@/components/SectionHeading";
 
 const STEPS = [
   {
@@ -38,29 +40,32 @@ export default function Process() {
       id="processo"
       className="relative overflow-hidden px-6 py-28 sm:px-12"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute bottom-0 right-0 h-[26rem] w-[26rem] rounded-full bg-brand/10 blur-3xl" />
-      </div>
+      <SectionDecor
+        blobs={["bottom-0 right-0 h-[26rem] w-[26rem] bg-brand/10"]}
+        icons={[
+          {
+            Icon: Cross,
+            className: "left-4 top-4 text-brand/[0.07]",
+            size: 60,
+            duration: 8,
+          },
+          {
+            Icon: Sparkles,
+            className: "right-10 top-24 text-accent/[0.1]",
+            size: 48,
+            duration: 7,
+            rotate: 16,
+            delay: 0.8,
+          },
+        ]}
+      />
 
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-sm font-medium text-brand">
-            Processo
-          </span>
-          <h2 className="mt-6 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Do diagnóstico ao site no ar, em 4 etapas
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-foreground/70">
-            Um processo claro, sem enrolação — você acompanha cada etapa até
-            a publicação.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Processo"
+          title="Do diagnóstico ao site no ar, em 4 etapas"
+          description="Um processo claro, sem enrolação — você acompanha cada etapa até a publicação."
+        />
 
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}

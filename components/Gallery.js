@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Cat, HeartPulse } from "lucide-react";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
 import TiltCard from "@/components/TiltCard";
+import SectionDecor from "@/components/SectionDecor";
+import SectionHeading from "@/components/SectionHeading";
 
 const PHOTOS = [
   {
@@ -44,29 +47,32 @@ export default function Gallery() {
       id="galeria"
       className="relative overflow-hidden px-6 py-28 sm:px-12"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute right-0 top-0 h-[26rem] w-[26rem] rounded-full bg-accent/10 blur-3xl" />
-      </div>
+      <SectionDecor
+        blobs={["right-0 top-0 h-[26rem] w-[26rem] bg-accent/10"]}
+        icons={[
+          {
+            Icon: Cat,
+            className: "-left-2 top-6 text-brand/[0.08]",
+            size: 64,
+            duration: 9,
+          },
+          {
+            Icon: HeartPulse,
+            className: "right-8 bottom-8 text-accent/[0.09]",
+            size: 56,
+            duration: 8,
+            rotate: -14,
+            delay: 0.7,
+          },
+        ]}
+      />
 
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-sm font-medium text-brand">
-            Galeria
-          </span>
-          <h2 className="mt-6 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            O dia a dia de uma clínica de verdade
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-foreground/70">
-            É esse cuidado que o site da sua clínica precisa transmitir logo
-            no primeiro clique.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Galeria"
+          title="O dia a dia de uma clínica de verdade"
+          description="É esse cuidado que o site da sua clínica precisa transmitir logo no primeiro clique."
+        />
 
         <motion.div
           variants={staggerContainer}

@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, HeartPulse, PawPrint } from "lucide-react";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
+import SectionDecor from "@/components/SectionDecor";
+import SectionHeading from "@/components/SectionHeading";
 
 const FAQS = [
   {
@@ -53,28 +55,34 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="relative overflow-hidden px-6 py-28 sm:px-12">
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-0 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
-      </div>
+      <SectionDecor
+        blobs={[
+          "left-1/2 top-0 h-[26rem] w-[26rem] -translate-x-1/2 bg-accent/10",
+        ]}
+        icons={[
+          {
+            Icon: HeartPulse,
+            className: "left-6 top-10 text-brand/[0.08]",
+            size: 52,
+            duration: 8,
+          },
+          {
+            Icon: PawPrint,
+            className: "right-8 bottom-10 text-accent/[0.09]",
+            size: 60,
+            duration: 10,
+            rotate: -10,
+            delay: 0.6,
+          },
+        ]}
+      />
 
       <div className="mx-auto max-w-3xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-sm font-medium text-brand">
-            FAQ
-          </span>
-          <h2 className="mt-6 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Perguntas frequentes
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-foreground/70">
-            Tudo que clínicas costumam perguntar antes de fechar.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="FAQ"
+          title="Perguntas frequentes"
+          description="Tudo que clínicas costumam perguntar antes de fechar."
+        />
 
         <motion.div
           variants={staggerContainer}

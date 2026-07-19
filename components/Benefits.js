@@ -8,9 +8,13 @@ import {
   Smartphone,
   MessageCircle,
   LifeBuoy,
+  Stethoscope,
+  HeartPulse,
 } from "lucide-react";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
 import TiltCard from "@/components/TiltCard";
+import SectionDecor from "@/components/SectionDecor";
+import SectionHeading from "@/components/SectionHeading";
 
 const BENEFITS = [
   {
@@ -57,29 +61,34 @@ export default function Benefits() {
       id="beneficios"
       className="relative overflow-hidden px-6 py-28 sm:px-12"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-0 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-brand/10 blur-3xl" />
-      </div>
+      <SectionDecor
+        blobs={[
+          "left-1/2 top-0 h-[32rem] w-[32rem] -translate-x-1/2 bg-brand/10",
+        ]}
+        icons={[
+          {
+            Icon: Stethoscope,
+            className: "-left-4 top-16 text-brand/[0.07]",
+            size: 96,
+            duration: 10,
+          },
+          {
+            Icon: HeartPulse,
+            className: "right-0 bottom-4 text-accent/[0.09]",
+            size: 64,
+            duration: 8,
+            rotate: -12,
+            delay: 1,
+          },
+        ]}
+      />
 
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-sm font-medium text-brand">
-            Benefícios
-          </span>
-          <h2 className="mt-6 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Um site pensado pra trazer mais tutores até você
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-foreground/70">
-            Não é só bonito — é uma ferramenta de conversão construída pra
-            transformar visitantes em consultas agendadas.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Benefícios"
+          title="Um site pensado pra trazer mais tutores até você"
+          description="Não é só bonito — é uma ferramenta de conversão construída pra transformar visitantes em consultas agendadas."
+        />
 
         <motion.div
           variants={staggerContainer}

@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, X, Check } from "lucide-react";
+import { ArrowRight, X, Check, PawPrint, Dog } from "lucide-react";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
+import SectionDecor from "@/components/SectionDecor";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function BeforeAfter() {
   return (
@@ -10,25 +12,32 @@ export default function BeforeAfter() {
       id="antes-depois"
       className="relative overflow-hidden px-6 py-28 sm:px-12"
     >
+      <SectionDecor
+        blobs={["left-0 bottom-0 h-[24rem] w-[24rem] bg-accent/10"]}
+        icons={[
+          {
+            Icon: PawPrint,
+            className: "right-6 top-8 text-brand/[0.08]",
+            size: 56,
+            duration: 9,
+          },
+          {
+            Icon: Dog,
+            className: "left-10 bottom-16 text-accent/[0.08]",
+            size: 68,
+            duration: 10,
+            rotate: -10,
+            delay: 0.6,
+          },
+        ]}
+      />
+
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-sm font-medium text-brand">
-            Antes e Depois
-          </span>
-          <h2 className="mt-6 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            A transformação que seu site merece
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-foreground/70">
-            Veja o tipo de salto visual que uma clínica comum dá ao migrar
-            pra um site premium.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Antes e Depois"
+          title="A transformação que seu site merece"
+          description="Veja o tipo de salto visual que uma clínica comum dá ao migrar pra um site premium."
+        />
 
         <motion.div
           variants={staggerContainer}

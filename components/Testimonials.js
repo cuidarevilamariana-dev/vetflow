@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, PawPrint, Sparkles } from "lucide-react";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
 import TiltCard from "@/components/TiltCard";
+import SectionDecor from "@/components/SectionDecor";
+import SectionHeading from "@/components/SectionHeading";
 
 const TESTIMONIALS = [
   {
@@ -35,29 +37,32 @@ export default function Testimonials() {
       id="depoimentos"
       className="relative overflow-hidden px-6 py-28 sm:px-12"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-0 top-0 h-[26rem] w-[26rem] rounded-full bg-brand/10 blur-3xl" />
-      </div>
+      <SectionDecor
+        blobs={["left-0 top-0 h-[26rem] w-[26rem] bg-brand/10"]}
+        icons={[
+          {
+            Icon: PawPrint,
+            className: "right-4 top-10 text-brand/[0.08]",
+            size: 60,
+            duration: 9,
+          },
+          {
+            Icon: Sparkles,
+            className: "left-8 bottom-6 text-accent/[0.1]",
+            size: 44,
+            duration: 7,
+            rotate: 14,
+            delay: 0.4,
+          },
+        ]}
+      />
 
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-sm font-medium text-brand">
-            Depoimentos
-          </span>
-          <h2 className="mt-6 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Quem já construiu com a gente
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-foreground/70">
-            O tipo de retorno que buscamos entregar pra cada clínica
-            parceira.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Depoimentos"
+          title="Quem já construiu com a gente"
+          description="O tipo de retorno que buscamos entregar pra cada clínica parceira."
+        />
 
         <motion.div
           variants={staggerContainer}

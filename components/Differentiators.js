@@ -9,8 +9,12 @@ import {
   Smartphone,
   Triangle,
   Headset,
+  Bone,
+  Stethoscope,
 } from "lucide-react";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
+import SectionDecor from "@/components/SectionDecor";
+import SectionHeading from "@/components/SectionHeading";
 
 const DIFFERENTIATORS = [
   { icon: Gem, label: "Design premium" },
@@ -28,28 +32,34 @@ export default function Differentiators() {
       id="diferenciais"
       className="relative overflow-hidden px-6 py-28 sm:px-12"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-0 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-brand/10 blur-3xl" />
-      </div>
+      <SectionDecor
+        blobs={[
+          "left-1/2 top-0 h-[26rem] w-[26rem] -translate-x-1/2 bg-brand/10",
+        ]}
+        icons={[
+          {
+            Icon: Bone,
+            className: "left-6 bottom-6 text-brand/[0.08]",
+            size: 60,
+            duration: 9,
+          },
+          {
+            Icon: Stethoscope,
+            className: "right-6 top-6 text-accent/[0.09]",
+            size: 68,
+            duration: 10,
+            rotate: -12,
+            delay: 0.5,
+          },
+        ]}
+      />
 
       <div className="mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-sm font-medium text-brand">
-            Diferenciais
-          </span>
-          <h2 className="mt-6 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Por que a VetFlow é diferente
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-foreground/70">
-            Tudo isso já vem incluso em todo projeto — sem letras miúdas.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Diferenciais"
+          title="Por que a VetFlow é diferente"
+          description="Tudo isso já vem incluso em todo projeto — sem letras miúdas."
+        />
 
         <motion.div
           variants={staggerContainer}

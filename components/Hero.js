@@ -3,8 +3,11 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, PawPrint } from "lucide-react";
 import { getWhatsappLink } from "@/lib/whatsapp";
+import { wordContainer, wordItem } from "@/lib/motion";
+
+const HEADING_LEAD = "O site que faz sua clínica parecer".split(" ");
 
 export default function Hero() {
   const sectionRef = useRef(null);
@@ -38,6 +41,14 @@ export default function Hero() {
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(14,124,102,0.1),transparent_60%)]" />
+        <div className="absolute inset-0 bg-dot-grid opacity-40 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_20%,black,transparent)]" />
+        <motion.div
+          className="absolute right-10 top-24 text-brand/[0.08]"
+          animate={{ y: [0, -14, 0], rotate: [0, 12, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <PawPrint className="h-20 w-20" />
+        </motion.div>
       </motion.div>
 
       <motion.div
@@ -54,15 +65,26 @@ export default function Hero() {
       </motion.span>
 
       <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.1 }}
+        variants={wordContainer}
+        initial="hidden"
+        animate="show"
         className="max-w-4xl text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
       >
-        O site que faz sua clínica parecer{" "}
-        <span className="bg-gradient-to-r from-brand to-brand-dark bg-clip-text text-transparent">
+        {HEADING_LEAD.map((word, i) => (
+          <motion.span
+            key={i}
+            variants={wordItem}
+            className="mr-[0.28em] inline-block"
+          >
+            {word}
+          </motion.span>
+        ))}
+        <motion.span
+          variants={wordItem}
+          className="inline-block bg-gradient-to-r from-brand to-brand-dark bg-clip-text text-transparent"
+        >
           tão boa quanto realmente é
-        </span>
+        </motion.span>
       </motion.h1>
 
       <motion.p

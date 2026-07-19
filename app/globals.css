@@ -25,3 +25,12 @@ body {
 section[id] {
   scroll-margin-top: 5.5rem;
 }
+
+.bg-dot-grid {
+  background-image: radial-gradient(
+    circle,
+    rgba(17, 24, 39, 0.14) 1px,
+    transparent 1px
+  );
+  background-size: 26px 26px;
+}
