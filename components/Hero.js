@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { getWhatsappLink } from "@/lib/whatsapp";
@@ -93,7 +94,17 @@ export default function Hero() {
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
           </div>
-          <div className="aspect-video w-full rounded-xl bg-gradient-to-br from-brand/15 via-white to-accent/10" />
+          <div className="relative aspect-video w-full overflow-hidden rounded-xl">
+            <Image
+              src="/images/hero-consulta.jpg"
+              alt="Veterinário atendendo um cão com a tutora em consultório moderno"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/30 via-transparent to-transparent" />
+          </div>
         </div>
       </motion.div>
 

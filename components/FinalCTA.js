@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { PawPrint } from "lucide-react";
 import { getWhatsappLink } from "@/lib/whatsapp";
@@ -7,7 +8,15 @@ import { getWhatsappLink } from "@/lib/whatsapp";
 export default function FinalCTA() {
   return (
     <section className="relative overflow-hidden px-6 py-28 sm:px-12">
-      <div className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl bg-gradient-to-br from-brand to-brand-dark px-6 py-20 text-center shadow-2xl shadow-brand/30 sm:px-16">
+      <div className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl px-6 py-20 text-center shadow-2xl shadow-brand/30 sm:px-16">
+        <Image
+          src="/images/cta-consulta.jpg"
+          alt="Veterinário conversando com tutora e seu cão"
+          fill
+          sizes="(max-width: 1024px) 100vw, 896px"
+          className="-z-20 object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-brand/95 to-brand-dark/95" />
         <div className="pointer-events-none absolute inset-0">
           <motion.div
             className="absolute -left-10 -top-10 h-64 w-64 rounded-full bg-white/10 blur-3xl"

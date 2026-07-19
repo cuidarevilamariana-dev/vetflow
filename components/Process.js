@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Search, PenTool, Code2, Rocket } from "lucide-react";
 import { staggerContainer, fadeUpItem } from "@/lib/motion";
@@ -58,6 +59,27 @@ export default function Process() {
           <p className="mt-4 text-lg leading-8 text-foreground/70">
             Um processo claro, sem enrolação — você acompanha cada etapa até
             a publicação.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7 }}
+          className="relative mt-14 h-64 w-full overflow-hidden rounded-3xl sm:h-80"
+        >
+          <Image
+            src="/images/processo-equipe.jpg"
+            alt="Veterinário examinando um cão com cuidado em consultório"
+            fill
+            sizes="(max-width: 1024px) 100vw, 1152px"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-brand-dark/10 to-transparent" />
+          <p className="absolute bottom-6 left-6 max-w-sm text-sm font-medium text-white/90 sm:text-base">
+            Cuidado de verdade, em cada etapa — do primeiro diagnóstico à
+            publicação do site.
           </p>
         </motion.div>
 

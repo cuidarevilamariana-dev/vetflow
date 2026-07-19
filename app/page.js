@@ -3,6 +3,7 @@ import Benefits from "@/components/Benefits";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import BeforeAfter from "@/components/BeforeAfter";
+import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import Differentiators from "@/components/Differentiators";
 import FAQ from "@/components/FAQ";
@@ -16,6 +17,7 @@ export default function Home() {
       <Services />
       <Process />
       <BeforeAfter />
+      <Gallery />
       <Testimonials />
       <Differentiators />
       <FAQ />
